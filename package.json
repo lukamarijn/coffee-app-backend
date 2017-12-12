@@ -2,9 +2,9 @@
   "name": "coffee-app-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "test": "set NODE_ENV=test&&nodemon --exec mocha -R min"
   },
   "author": "",
