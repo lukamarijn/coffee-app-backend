@@ -7,10 +7,10 @@ const coffeeBarSchema = new Schema(
             type: String,
             required: [true, 'Name is required']
         },
-        city: {
+    /*    city: {
             type: String,
             required: [true, 'City is required']
-        },
+        },*/
         description: String,
         beans:  [{
             type: Schema.ObjectId,
