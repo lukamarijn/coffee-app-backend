@@ -83,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/config/neo4j.db.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="63">
-              <caret line="3" column="85" lean-forward="false" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
+              <caret line="3" column="91" lean-forward="false" selection-start-line="3" selection-start-column="91" selection-end-line="3" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -402,12 +402,12 @@
       <workItem from="1512559107442" duration="16215000" />
       <workItem from="1512654097990" duration="46895000" />
       <workItem from="1512936306021" duration="11854000" />
-      <workItem from="1513009614841" duration="32408000" />
+      <workItem from="1513009614841" duration="32483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137252000" />
+    <option name="totallyTimeSpent" value="137327000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -844,7 +844,7 @@
     <entry file="file://$PROJECT_DIR$/config/neo4j.db.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
-          <caret line="3" column="85" lean-forward="false" selection-start-line="3" selection-start-column="85" selection-end-line="3" selection-end-column="85" />
+          <caret line="3" column="91" lean-forward="false" selection-start-line="3" selection-start-column="91" selection-end-line="3" selection-end-column="91" />
           <folding />
         </state>
       </provider>
