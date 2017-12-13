@@ -4,7 +4,11 @@ var env = {
     dbPort: process.env.DB_PORT || '',
     dbUser: process.env.DB_USER || '',
     dbPassword: process.env.DB_PASSWORD || '',
-    dbDatabase: process.env.DB_DATABASE || 'coffee-app-backend'
+    dbDatabase: process.env.DB_DATABASE || 'coffee-app-backend',
+    neo4jHost: process.env.NEO4J_HOST || '',
+    neo4jPort: process.env.NEO4J_PORT || '',
+    neo4jUser: process.env.NEO4J_USER || '',
+    neo4jPassword: process.env.NEO4J_PASSWORD || '',
 };
 
 var dburl;
