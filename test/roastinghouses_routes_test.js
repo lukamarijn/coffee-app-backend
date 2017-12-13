@@ -32,9 +32,10 @@ describe('HTTP methods of roastingHouses', () => {
                 .send({ name: 'roastinghouse', city: 'Breda'})
                 .end(() => {
                     RoastingHouse.count().then(newCount => {
-                        assert(count +1 === newCount);
+                        assert(count +1 === newCount );
                         done();
-                    })
+                    });
+
                 })
         })
     });
@@ -72,6 +73,23 @@ describe('HTTP methods of roastingHouses', () => {
                         })
                 })
         })
+    })
+
+    it('Get to /api/v1/roastingHouses/id gets a roastinghouse', (done) => {
+
+        const roastingHouse = new RoastingHouse({ name: 'RoastingHouse', city: 'Nederland'});
+
+        roastingHouse.save().then(() => {
+            request(app)
+                .get(`/api/v1/roastinghouses/${roastingHouse._id}`)
+                .end(function (err, res) {
+                    res.should.have.status(200);
+                    res.body.should.be.a('array');
+                    assert(res.body.name = "RoastinHouse");
+                    done();
+                })
+        })
+
     })
 
 });

@@ -59,9 +59,9 @@ routes.post('/beans', function(req, res) {
                         res.status(201).send(resultBean);
                         session.close();
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => res.status(400).send({error: error.message}));
             })
-            .catch(error => console.log(error));
+            .catch(error => res.status(400).send({error: error.message}));
          })
         .catch((error) => res.status(400).send({error: error.message}));
 });
@@ -85,7 +85,6 @@ routes.put('/beans/:id', function(req, res) {
         .then(() => {
             Bean.findOne({_id: id}).populate('roasting_house')
                 .then(bean => {
-                    console.log(bean)
                     session.run("MATCH (b:Bean {_id : {_id}})-[r1:HAS_TASTE]->(:Taste) " +
                      "MATCH (b)-[r2:HAS_TYPE]->(:Type) " +
                      "MATCH (b)-[r3:PRODUCED_BY]->(:Plantation) " +
@@ -138,7 +137,7 @@ routes.delete('/beans/:id', function(req, res) {
     Bean.findByIdAndRemove({_id: id})
         .then(bean => {
             session.run('MATCH (b:Bean { _id: {id} })DETACH DELETE b', {id : id})
-                .then(result =>  res.status(202).send(bean))
+                .then(result =>  res.status(200).send(bean))
                 .catch((error) => res.status(404).send({error: error.message}));
             })
         .catch((error) => res.status(404).send({error: error.message}))
@@ -146,33 +145,6 @@ routes.delete('/beans/:id', function(req, res) {
 });
 
 
-
-routes.get('/plantations', function(req, res) {
-
-    res.contentType('application/json');
-
-    const session = neo4j.session();
-
-    session.run("MATCH (b:Bean)-[]-(p:Plantation{}) RETURN DISTINCT p;")
-                .then(result2 => {
-                    var beanArr = [];{
-                        result2.records.forEach(function (record) {
-                                beanArr.push(
-                                    {
-                                        name: record._fields[0].properties.name,
-                                        country: record._fields[0].properties.country
-                                    })
-                            })
-                    }
-
-                    res.send(beanArr);
-
-                    session.close()
-
-                })
-                .catch((error) => res.status(404).send({error: error.message}))
-
-        });
 
 routes.get('/beans', function(req, res) {
 

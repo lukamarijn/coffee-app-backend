@@ -15,11 +15,6 @@ var app = express();
 module.exports = {};
 
 
-/*
-var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "password"));
-var session = driver.session();
-*/
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.json({
@@ -54,8 +49,6 @@ app.use('/api/v1', beansroutes_v1);
 app.use('/api/v1', barsroutes_v1);
 app.use('/api/v1', roastinghouseroutes_v1);
 
-// Errorhandler voor express-jwt errors
-// Wordt uitgevoerd wanneer err != null; anders door naar next().
 
 app.use(function (err, req, res, next) {
     // console.dir(err);
@@ -79,7 +72,7 @@ app.use(function (err, req, res, next) {
     res.status(401).send(error);
 });
 
-// Fallback - als geen enkele andere route slaagt wordt deze uitgevoerd.
+
 app.use('*', function (req, res) {
     res.status(418);
     res.json({

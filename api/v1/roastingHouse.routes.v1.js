@@ -31,7 +31,7 @@ routes.put('/roastinghouses/:id', function(req, res) {
         }
     )
         .then(() =>  RoastingHouse.findById({'_id' : id}))
-        .then(result =>{ console.log(result); res.status(200).send(result); })
+        .then(result =>{ res.status(200).send(result); })
         .catch((error) => res.status(404).send({error: error.message}));
 
 });

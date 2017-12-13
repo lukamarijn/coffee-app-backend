@@ -7,17 +7,21 @@ var env = {
     dbDatabase: process.env.DB_DATABASE || 'coffee-app-backend'
 };
 
+var dburl;
 
-if (process.env.NODE_ENV = 'test') {
+if (process.env.NODE_ENV === 'test') {
     dburl = 'mongodb://localhost/coffee-app-backend-test'
 }
 
-   /* var dburl = process.env.NODE_ENV === 'production' ?
-        'mongodb://' + env.dbUser + ':' + env.dbPassword + '@' + env.dbHost + ':' + env.dbPort + '/' + env.dbDatabase :
-        'mongodb://localhost/' + env.dbDatabase;*/
+   else if (process.env.NODE_ENV === 'production') {
+       dburl= 'mongodb://' + env.dbUser + ':' + env.dbPassword + '@' + env.dbHost + ':' + env.dbPort + '/' + env.dbDatabase
+        console.log(dburl);
 
-   var dburl = 'mongodb://username1:password1@ds135956.mlab.com:35956/coffee-app-backend';
-
+      /* dburl = 'mongodb://username1:password1@ds135956.mlab.com:35956/coffee-app-backend';*/
+   }
+else {
+       dburl =  'mongodb://localhost/' + env.dbDatabase;
+   }
 
 module.exports = {
     env: env,

@@ -5,11 +5,6 @@ const coffeeRoastingHouseSchema = new Schema(
     {
         name : String,
         city: String,
-
-      /* beans: [{
-            type: Schema.Types.ObjectId,
-            ref: 'coffeeBean'}
-        ]*/
     }
 );
 
