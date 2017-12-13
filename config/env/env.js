@@ -5,10 +5,9 @@ var env = {
     dbUser: process.env.DB_USER || '',
     dbPassword: process.env.DB_PASSWORD || '',
     dbDatabase: process.env.DB_DATABASE || 'coffee-app-backend',
-    neo4jHost: process.env.NEO4J_HOST || '',
-    neo4jPort: process.env.NEO4J_PORT || '',
-    neo4jUser: process.env.NEO4J_USER || '',
-    neo4jPassword: process.env.NEO4J_PASSWORD || '',
+    graphenedbURL: process.env.GRAPHENEDB_BOLT_URL || '',
+    graphenedbUser: process.env.GRAPHENEDB_BOLT_USER || '',
+    graphenedbPass: process.env.GRAPHENEDB_BOLT_PASSWORD || '',
 };
 
 var dburl;

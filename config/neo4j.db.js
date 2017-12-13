@@ -5,8 +5,8 @@ var driver;
 
 if (process.env.NODE_ENV === 'production') {
     /*driver = neo4j.driver("bolt://hobby-jfclcepjgmiigbkehfhlgjal.dbs.graphenedb.com:24786", neo4j.auth.basic("username1", "b.EvPgFf2SvQxe.Is4r5Zq1HFDpGGMx"));*/
-    url = "bolt://" + config.env.neo4jHost + ":" + config.env.neo4jPort;
-    driver = neo4j.driver(url, neo4j.auth.basis(config.env.neo4jUser, config.env.neo4jPassword));
+
+    driver = neo4j.driver(config.env.graphenedbURL, neo4j.auth.basic(config.env.graphenedbUser, config.env.graphenedbPass));
     console.log("production environment");
 }
 
