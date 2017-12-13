@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
     console.log("production environment");
 }
 
-if (process.env.NODE_ENV === 'test') {
+else if (process.env.NODE_ENV === 'test') {
     driver = neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo4j-test", "password"));
     console.log("test environment");
 }
