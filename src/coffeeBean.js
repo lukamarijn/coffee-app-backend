@@ -15,7 +15,6 @@ const coffeeBeanSchema = new Schema(
             type: String,
             required: [true, 'Image is required']
         },
-        description: String,
         roasting_house: {
             type: Schema.Types.ObjectId,
             ref: 'coffeeRoastingHouse'

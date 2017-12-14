@@ -9,6 +9,8 @@ routes.post('/roastinghouses', function(req, res) {
     const houseProps = {
         name: body.name,
         city: body.city,
+        description: body.description,
+        image_url: body.image_url
     };
 
     RoastingHouse.create(houseProps)
@@ -27,7 +29,9 @@ routes.put('/roastinghouses/:id', function(req, res) {
         id,
         {
             name: body.name,
-            city: body.city
+            city: body.city,
+            image_url: body.image_url,
+            description: body.description
         }
     )
         .then(() =>  RoastingHouse.findById({'_id' : id}))
@@ -39,9 +43,8 @@ routes.put('/roastinghouses/:id', function(req, res) {
 routes.get('/roastinghouses', function(req, res) {
     res.contentType('application/json');
     RoastingHouse.find({})
-        .populate('beans')
         .then((roastingHouse) => {
-            res.status(200).json(roastingHouse);
+            res.status(200).send(roastingHouse);
         })
         .catch((error) => res.status(400).send({error: error.message}));
 });
@@ -62,7 +65,7 @@ routes.get('/roastinghouses/:id', function(req, res) {
 
     RoastingHouse.find({_id: id})
         .then((roastingHouse) => {
-            res.status(200).json(roastingHouse);
+            res.status(200).send(roastingHouse);
         })
         .catch((error) => res.status(400).send({error: error.message}));
 });

@@ -7,7 +7,7 @@ routes.get('/bars', function(req, res) {
     Bar.find({})
         .populate({ path: 'beans'})
         .then((beans) => {
-            res.status(200).json(beans);
+            res.status(200).send(beans);
         })
         .catch((error) => res.status(400).send({error: error.message}));
 });
@@ -20,7 +20,7 @@ routes.get('/bars/:name', function(req, res){
     Bar.find({ 'name' : name})
         .populate({ path: 'beans'})
         .then((bar) => {
-            res.status(200).json(bar);
+            res.status(200).send(bar);
         })
         .catch((error) => res.status(400).send({error: error.message}));
 });
@@ -66,7 +66,7 @@ routes.delete('/bars/:id', function(req, res) {
     const id = req.params.id;
 
     Bar.findByIdAndRemove({_id: id})
-        .then(bar => res.status(202).send(bar))
+        .then(bar => res.status(200).send(bar))
         .catch((error) => res.status(404).send({error: error.message}));
 });
 

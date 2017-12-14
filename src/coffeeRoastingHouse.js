@@ -5,6 +5,8 @@ const coffeeRoastingHouseSchema = new Schema(
     {
         name : String,
         city: String,
+        description: String,
+        image_url: String
     }
 );
 

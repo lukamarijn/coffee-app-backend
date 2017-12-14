@@ -144,8 +144,6 @@ routes.delete('/beans/:id', function(req, res) {
 
 });
 
-
-
 routes.get('/beans', function(req, res) {
 
     res.contentType('application/json');
@@ -219,7 +217,7 @@ routes.get('/beans', function(req, res) {
                         })
                     }
 
-                    res.send(beanArr);
+                    res.status(200).send(beanArr);
 
                     session.close()
 
@@ -228,6 +226,9 @@ routes.get('/beans', function(req, res) {
 
         });
 });
+
+
+
 
 
 
